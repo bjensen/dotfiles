@@ -1,2 +1,4 @@
-dotfiles
-========
+== Tools
+- Tmux
+- Zsh
+- vim
