@@ -198,6 +198,7 @@ noremap <Right> <NOP>
 "colorscheme badwolf 
 
 nnoremap <F3> :NumbersToggle<CR> 
+map <F7> mzgg=G`z<CR>
 
 set encoding=utf-8
 set t_ti= t_te=
