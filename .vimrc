@@ -93,7 +93,7 @@ set incsearch     " show search matches as you type
 set pastetoggle=<F2>
 
 "No more silly built in file explorer."
-let g:NERDTreeHijackNetrw = 1
+"let g:NERDTreeHijackNetrw = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
