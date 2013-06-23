@@ -30,6 +30,7 @@ Bundle 'Syntastic'
 " Tool bundles:
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-bundler'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'ack.vim'
 Bundle 'tpope/vim-dispatch.git'
@@ -79,6 +80,7 @@ set backspace=indent,eol,start
 set autoindent    " always set autoindenting on
 set number        " always show line numbers
 set shiftwidth=2  " number of spaces to use for autoindenting
+set expandtab 
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
