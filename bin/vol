@@ -1,0 +1,28 @@
+# --------------------------------------------------------
+# vol as a shell script
+# --------------------------------------------------------
+# You would put this code in a directory that's in your
+# path, like ~/bin (PATH=~/bin:$PATH in your .bashrc to
+# add a directory like that to your path.)
+# The invokation syntax is the same as that of the
+# function.
+# --------------------------------------------------------
+# Example usage:
+# vol
+# vol path/to/directory
+# --------------------------------------------------------
+
+#! /bin/sh
+
+unset latest
+for file in "${1:-.}"/*
+do
+    if [ -f "$file" ]
+    then
+        latest=${latest-$file}
+        find "$file" -prune -newer "$latest" | read -r dummy && latest=$file
+    fi
+done
+test -e "$latest" && exec /usr/bin/vim "$latest"
+
+# --------------------------------------------------------
