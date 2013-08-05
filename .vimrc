@@ -34,6 +34,7 @@ Bundle 'tpope/vim-bundler'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'ack.vim'
 Bundle 'tpope/vim-dispatch.git'
+Bundle 'thoughtbot/vim-rspec'
 
 
 " Window management
@@ -51,6 +52,7 @@ Bundle 'Lokaltog/vim-powerline'
 filetype plugin indent on     " required! 
 
 "colorscheme grb256
+
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -120,7 +122,6 @@ let mapleader=","
 " quickly switch between main and alternate file
 map ,, <C-^>
 
-map <leader>r :call Rails31Nav_show_drop_down()<cr>
 nnoremap <leader>l :ls<CR>:b<space>
 
 " This solves the problem that pressing down jumpes your
@@ -130,66 +131,6 @@ nnoremap j gj
 nnoremap k gk
 
 set showcmd
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
-    else
-        if filereadable("script/test")
-            exec ":!script/test " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
-        else
-            exec ":!rspec --color " . a:filename
-        end
-    end
-endfunction
-
-function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
-    else
-        let command_suffix = ""
-    endif
-
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-    let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -205,3 +146,11 @@ set encoding=utf-8
 set t_ti= t_te=
 " keep more context when scrolling off the end of a buffer
  set scrolloff=3
+
+
+" Setup of the vim-rspec plugin
+let g:rspec_command = "Dispatch zeus rspec {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
