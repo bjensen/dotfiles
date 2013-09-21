@@ -31,10 +31,12 @@ Bundle 'Syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-endwise'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'ack.vim'
 Bundle 'tpope/vim-dispatch.git'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'Rename2'
 
 
 " Window management
@@ -152,5 +154,13 @@ set t_ti= t_te=
 let g:rspec_command = "Dispatch zeus rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+" Setup autocomplete
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"improve autocomplete menu color
+highlight Pmenu ctermbg=238 gui=bold
