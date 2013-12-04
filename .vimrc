@@ -28,6 +28,7 @@ Bundle 'Syntastic'
 " Bundle 'vim-smartinput' starting out without
 
 " Tool bundles:
+Bundle 'tpope/rbenv'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-bundler'
@@ -164,3 +165,4 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
+
