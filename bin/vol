@@ -23,6 +23,6 @@ do
         find "$file" -prune -newer "$latest" | read -r dummy && latest=$file
     fi
 done
-test -e "$latest" && exec /usr/bin/vim "$latest"
+test -e "$latest" && exec "$EDITOR" "$latest"
 
 # --------------------------------------------------------
