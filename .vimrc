@@ -69,7 +69,7 @@ if &t_Co > 2 || has("gui_running")
   set guifont=Source\ Code\ Pro:h13
 endif
 
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=.git/**,.hg/**,.svn/**,public/**,tmp/**,log/** 
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
