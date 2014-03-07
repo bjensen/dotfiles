@@ -7,7 +7,7 @@
 
 
 ### Bin files
-- ```vol``` opens the newest file in a directory in vim. Usage: vol dotfiles/bin
+- ```vol``` opens the newest file in a directory in your $EDITOR. Usage: ```vol dotfiles/bin```
 
 ### Installation
 
