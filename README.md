@@ -4,6 +4,9 @@
 - vim
 - Pow
 - Git
+- Rspec
+- Postgres client
+- Ruby gem installation (disable docs)
 
 
 ### Bin files
