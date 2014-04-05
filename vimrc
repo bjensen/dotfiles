@@ -8,7 +8,8 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
-
+" Making status line prettier
+Bundle "bling/vim-airline"
 
 " Formatting bundles:
 Bundle 'tpope/vim-haml'
@@ -16,6 +17,7 @@ Bundle 'kchmck/vim-coffee-script'
 " 
 " " Navigation bundles:
 Bundle 'kien/ctrlp.vim'
+
 "Bundle 'scrooloose/nerdtree'
  
  
@@ -24,6 +26,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tComment'
 Bundle 'Syntastic'
+Bundle "terryma/vim-multiple-cursors"
+
  
 " Bundle 'vim-smartinput' starting out without
 
