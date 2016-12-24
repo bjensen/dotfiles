@@ -1,8 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
@@ -26,13 +26,11 @@ Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tComment'
 Bundle 'Syntastic'
-Bundle "terryma/vim-multiple-cursors"
 
  
 " Bundle 'vim-smartinput' starting out without
 
 " Tool bundles:
-Bundle 'tpope/rbenv'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-bundler'
